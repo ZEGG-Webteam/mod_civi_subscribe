@@ -3,17 +3,67 @@
 	<name>MOD_CIVI_SUBSCRIBE</name>
 	<author>Benno Flory</author>
 	<version>1.0.0</version>
-	<description>This module supplies a newsletter subscription form, using the CiviCRM REST-API version 4 to add subscribers as Contacts to CiviCRM.</description>
+	<description>MOD_CIVI_SUBSCRIBE_DESC</description>
 	<files>
 		<filename>mod_civi_subscribe.xml</filename>
 		<filename module="mod_civi_subscribe">mod_civi_subscribe.php</filename>
 		<filename>index.html</filename>
 		<filename>helper.php</filename>
-		<filename>tmpl/default.php</filename>
+    <folder>tmpl</folder>
 	</files>
+  <languages>
+    <language tag="en-GB">language/en-GB/en-GB.mod_civi_subscribe.ini</language>
+    <language tag="en-GB">language/en-GB/en-GB.mod_civi_subscribe.sys.ini</language>
+    <language tag="de-DE">language/de-DE/de-DE.mod_civi_subscribe.ini</language>
+    <language tag="de-DE">language/de-DE/de-DE.mod_civi_subscribe.sys.ini</language>
+  </languages>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
+        <field
+          name="text"
+          type="text"
+          label="MOD_CIVI_SUBSCRIBE_FIELD_TEXT_LABEL"
+          description="MOD_CIVI_SUBSCRIBE_FIELD_TEXT_DESC"
+        />
+        <field
+          name="email_label"
+          type="text"
+          label="MOD_CIVI_SUBSCRIBE_FIELD_EMAIL_LABEL"
+          description="MOD_CIVI_SUBSCRIBE_FIELD_EMAIL_DESC"
+        />
+        <field
+          name="api_url"
+          type="text"
+          label="MOD_CIVI_SUBSCRIBE_FIELD_API_URL_LABEL"
+          description="MOD_CIVI_SUBSCRIBE_FIELD_API_URL_DESC"
+        />
+        <field
+          name="api_key"
+          type="text"
+          label="MOD_CIVI_SUBSCRIBE_FIELD_API_KEY_LABEL"
+          description="MOD_CIVI_SUBSCRIBE_FIELD_API_KEY_DESC"
+        />
+        <field
+          name="privacy_message"
+          type="text"
+          label="MOD_CIVI_SUBSCRIBE_FIELD_TERMS_AND_PRIVACY_LABEL"
+          description="MOD_CIVI_SUBSCRIBE_FIELD_TERMS_AND_PRIVACY_DESC"
+          default="MOD_CIVI_SUBSCRIBE_FIELD_TERMS_AND_PRIVACY_DEFAULT"
+          filter="raw"
+        />
+        <field
+          name="confirmation_page"
+          type="menuitem"
+          label="MOD_CIVI_SUBSCRIBE_FIELD_CONFIRMATION_PAGE_LABEL"
+          description="MOD_CIVI_SUBSCRIBE_FIELD_CONFIRMATION_PAGE_DESC"
+        />
+        <field
+          name="failure_page"
+          type="menuitem"
+          label="MOD_CIVI_SUBSCRIBE_FIELD_FAILURE_PAGE_LABEL"
+          description="MOD_CIVI_SUBSCRIBE_FIELD_FAILURE_PAGE_DESC"
+        />
 			</fieldset>
 		</fields>
 	</config>

@@ -12,6 +12,9 @@
 
 // No direct access
 defined('_JEXEC') or die;
+
+use Joomla\CMS\Factory;
+
 // Include the syndicate functions only once
 require_once dirname(__FILE__) . '/helper.php';
 
@@ -23,5 +26,15 @@ require_once dirname(__FILE__) . '/helper.php';
 
 //$language = $params->get('lang', '1');
 //$xyz      = modCiviSubscripeHelper::getXyz( $language );
+//-- Get form post data
+$input = Factory::getApplication()->input->post;
 
-require JModuleHelper::getLayoutPath('mod_civi_subscribe'); ?>
+if ($input->get('civi_subscribe_email_encoded')) {
+  $email = base64_decode($input->get('civi_subscribe_email_encoded'));
+  $success = ModCiviSubscribeHelper::addSubscriber($params, $email);
+  
+  $target_page = $success?$params->get('confirmation_page'):$params->get('failure_page');
+  ModCiviSubscribeHelper::redirect($target_page);
+} else {
+  require JModuleHelper::getLayoutPath('mod_civi_subscribe');
+}
