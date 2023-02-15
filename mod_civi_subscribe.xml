@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1.0" client="site" method="upgrade">
+	<name>MOD_CIVI_SUBSCRIBE</name>
+	<author>Benno Flory</author>
+	<version>1.0.0</version>
+	<description>This module supplies a newsletter subscription form, using the CiviCRM REST-API version 4 to add subscribers as Contacts to CiviCRM.</description>
+	<files>
+		<filename>mod_civi_subscribe.xml</filename>
+		<filename module="mod_civi_subscribe">mod_civi_subscribe.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<filename>tmpl/default.php</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+			</fieldset>
+		</fields>
+	</config>
+
+	<install>
+	</install>
+
+	<uninstall>
+	</uninstall>
+</extension>
